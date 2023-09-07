@@ -8,10 +8,15 @@ import {
   IconButton,
   Input,
   InputAdornment,
+  Stack,
+  StackProps,
   TextField,
 } from "@mui/material";
+import { useAppDispatch, useAppSelector } from "@/hooks/storeHooks";
+import { getQuery, setQuery } from "@/state/searchSlice";
+import { useDebounce } from "@/hooks/useDebounce";
 
-const SearchStyled = styled(Box)(({ theme, sx }) => ({
+const SearchStyled = styled(Stack)(({ theme, sx }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   ".MuiInputBase-root": {
@@ -33,13 +38,26 @@ const SearchStyled = styled(Box)(({ theme, sx }) => ({
   sx,
 }));
 
-export type PrimarySearchAppBarProps = BoxProps & {};
+export type PrimarySearchAppBarProps = StackProps & {};
 
-export default function PrimarySearchAppBar(props: PrimarySearchAppBarProps) {
+export default function PrimarySearchAppBar({ sx }: PrimarySearchAppBarProps) {
+  const query = useAppSelector(getQuery);
+  const debouncedQuery = useDebounce(query, 500);
+  const dispatch = useAppDispatch();
+  const handleOnChange = (e: React.SyntheticEvent) => {
+    const value = e.target.value;
+    dispatch(setQuery(value));
+  };
+  React.useEffect(() => {
+    console.log({ debouncedQuery });
+  }, [debouncedQuery]);
+
   return (
-    <SearchStyled sx={{ display: "flex", flex: 1, width: "100%" }}>
+    <SearchStyled sx={{ ...sx }}>
       <TextField
         fullWidth
+        onChange={handleOnChange}
+        value={query}
         inputProps={{
           sx: { color: "white", width: "100%" },
         }}

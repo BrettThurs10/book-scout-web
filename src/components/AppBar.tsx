@@ -1,5 +1,5 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
+import { AppBar } from "@mui/material";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -13,7 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import BookIcon from "@mui/icons-material/Book";
-import Search from "@/components/Search";
+import SearchBar from "@/components/Search";
 import { Stack } from "@mui/material";
 import { useRouter } from "next/router";
 
@@ -69,9 +69,6 @@ function ResponsiveAppBar() {
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
-                fontWeight: 700,
-                color: "inherit",
-                textDecoration: "none",
               }}
             >
               book scout
@@ -114,7 +111,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
             {/* <Box sx={{ display: { xs: "flex", md: "none" } }}>
-              <Search />
+              <SearchBar />
             </Box> */}
           </Box>
           <Stack
@@ -162,7 +159,7 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-          <Search />
+          <SearchBar sx={{ flex: 1, display: { xs: "none", md: "flex" } }} />
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
