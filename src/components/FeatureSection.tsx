@@ -21,7 +21,7 @@ export const FeatureSection = ({
         background: (theme) =>
           theme.palette[backgroundColor].main ||
           theme.palette[backgroundColor].default,
-        minHeight: "80vh",
+
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

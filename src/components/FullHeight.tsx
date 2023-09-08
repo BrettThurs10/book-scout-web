@@ -10,9 +10,6 @@ function FullHeightContainer({ children, sx }: FullHeightContainerProps) {
     <Box
       sx={{
         backgroundColor: (theme) => theme.palette.background.default,
-        minHeight: 500,
-        height: "100vh", // Set the height to viewport height
-        overflow: "auto", // Enable scrolling
         ...sx,
       }}
     >

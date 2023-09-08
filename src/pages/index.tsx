@@ -31,7 +31,6 @@ export default function Home() {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "305% 25%",
-            minHeight: "100vh",
             justifyContent: "center",
             alignItems: "center",
             flex: 1,
@@ -46,10 +45,10 @@ export default function Home() {
               flex: 1,
               display: "flex",
               alignItems: "center",
-              marginTop: 10,
+              marginTop: { xs: 5, md: 10 },
               position: "relative",
               zIndex: 2,
-              flexDirection: "row",
+              flexDirection: { xs: "column-reverse", md: "row" },
             }}
           >
             <Box
@@ -61,6 +60,7 @@ export default function Home() {
                 minHeight: 550,
                 maxHeight: "75vh",
                 flex: 1,
+                width: "100%",
               }}
             ></Box>
             <Box
@@ -72,8 +72,8 @@ export default function Home() {
                 width: "100%",
                 maxWidth: 600,
                 justifyContent: "center",
-                p: (theme) => theme.spacing(10),
-                pl: 0,
+                alignItems: "center",
+                p: { xs: 5, md: 10 },
               }}
             >
               <Typography
@@ -86,7 +86,7 @@ export default function Home() {
               </Typography>
 
               <Typography sx={{ pt: 2 }}>
-                Are you tired of the guesswork involved in finding your next
+                Are you tired of the guess work involved in finding your next
                 great read? Look no further than Book Scout. As a discerning
                 reader, you're always on the hunt for captivating stories and
                 adventures, but you may also have specific preferences and want
@@ -98,7 +98,7 @@ export default function Home() {
                 Book Scout is on the verge of its exciting launch. Join our Beta
                 notification list now!
               </Typography>
-              <Box sx={{ mt: 3 }} />
+
               <BetaSignUp leftAligned variant="contained" color="secondary" />
             </Box>
           </Container>
@@ -109,7 +109,7 @@ export default function Home() {
               justifyContent: "center",
               alignItems: "center",
               display: "flex",
-              bottom: 10,
+              bottom: 20,
             }}
           >
             <Box>
@@ -117,7 +117,13 @@ export default function Home() {
                 onClick={() => scrollToAnchor("readOnLizzy")}
                 size="large"
                 variant="outlined"
-                sx={{ borderRadius: 10, px: 10, py: 1, my: 5 }}
+                sx={{
+                  borderRadius: 10,
+                  px: 10,
+                  py: 1,
+                  my: 5,
+                  display: { xs: "none", md: "block" },
+                }}
                 endIcon={<ArrowDropDown />}
               >
                 Find out more

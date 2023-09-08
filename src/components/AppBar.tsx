@@ -85,7 +85,7 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar
-      position="absolute"
+      position="fixed"
       sx={{
         backgroundColor: "rgba(0,0,0,0.2)",
         backdropFilter: "blur(5px)",

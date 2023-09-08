@@ -21,6 +21,7 @@ export const BetaSignUp = ({
         justifyContent: "center",
         flex: 1,
         alignItems: leftAligned ? "flex-start" : "center",
+        my: 5,
       }}
     >
       <Box>
