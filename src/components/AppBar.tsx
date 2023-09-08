@@ -1,56 +1,108 @@
-import * as React from "react";
-import { AppBar } from "@mui/material";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
+import { AppBar, Badge, BadgeProps, Stack } from "@mui/material";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import BookIcon from "@mui/icons-material/Book";
-import SearchBar from "@/components/Search";
-import { Stack } from "@mui/material";
+import Toolbar from "@mui/material/Toolbar";
+import Typography, { TypographyProps } from "@mui/material/Typography";
 import { useRouter } from "next/router";
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import { scrollToAnchor } from "@/utils/scrollToAnchor";
 
-const pages = ["Home", "Bookmarks", "Browse"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = [
+  { name: "Home", anchor: "beamMeUpScotty" },
+  { name: "Features", anchor: "readOnLizzy" },
+  { name: "Beta", anchor: "beta" },
+  // { name: "Contact", anchor: "contact" },
+];
 
 function ResponsiveAppBar() {
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (anchor: string) => {
     setAnchorElNav(null);
+    scrollToAnchor(anchor);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+    "& .MuiBadge-badge": {
+      right: -3,
+      top: 14,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: "0 4px",
+    },
+  }));
 
-  const handleRoute = (route: string) => {
-    if (route === "home") return router.push(`/`);
-    router.push(`/${route}`);
-  };
+  const Logo = (props: TypographyProps) => (
+    <StyledBadge badgeContent="Beta" color="secondary">
+      <Typography
+        variant="logo"
+        noWrap
+        component="a"
+        href="/"
+        color="primary"
+        sx={{
+          ...props.sx,
+        }}
+      >
+        Book Scout
+      </Typography>
+    </StyledBadge>
+  );
+
+  function determineColor(index: number) {
+    let color = "";
+    switch (index) {
+      case 1:
+        color = "secondary";
+
+        break;
+      case 2:
+        color = "info";
+
+        break;
+      case 3:
+        color = "error";
+
+        break;
+      default:
+        color = "primary";
+        break;
+    }
+    return color;
+  }
 
   return (
-    <AppBar position="static">
+    <AppBar
+      position="absolute"
+      sx={{
+        backgroundColor: "rgba(0,0,0,0.2)",
+        backdropFilter: "blur(5px)",
+        boxShadow: "0 0 20px rgba(0, 0, 0, 0.8)", // Add a shadow for soft edges
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          background:
+            "linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.2) 100%)",
+          borderRadius: "inherit",
+        },
+      }}
+    >
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           <Stack
@@ -60,60 +112,9 @@ function ResponsiveAppBar() {
               alignItems: "center",
             }}
           >
-            <BookIcon />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-              }}
-            >
-              book scout
-            </Typography>
+            <Logo sx={{ mr: 2, display: { xs: "none", md: "flex" } }} />
           </Stack>
 
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-            {/* <Box sx={{ display: { xs: "flex", md: "none" } }}>
-              <SearchBar />
-            </Box> */}
-          </Box>
           <Stack
             sx={{
               flex: 1,
@@ -127,67 +128,79 @@ function ResponsiveAppBar() {
             }}
           >
             <Stack direction="row" alignItems={"center"}>
-              <BookIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-              <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href="/"
+              <Logo
                 sx={{
                   mr: 2,
                   display: { xs: "flex", md: "none" },
                   flexGrow: 1,
-
-                  fontWeight: 700,
-
-                  color: "inherit",
-                  textDecoration: "none",
+                }}
+              />
+            </Stack>
+            <Box
+              sx={{
+                display: { xs: "flex", md: "none" },
+                position: "absolute",
+                right: 0,
+              }}
+            >
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
                 }}
               >
-                book scout
-              </Typography>
-            </Stack>
+                {pages.map((page) => (
+                  <MenuItem
+                    key={page.name}
+                    onClick={() => handleCloseNavMenu(page.anchor)}
+                  >
+                    <Typography color="secondary" textAlign="center">
+                      {page.name}
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
           </Stack>
-          <Box sx={{ flexGrow: 0.2, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+          <Box
+            sx={{
+              flex: 1,
+              justifyContent: "flex-end",
+              display: { xs: "none", md: "flex" },
+            }}
+          >
+            {pages.map((page, index) => (
               <Button
-                key={page}
-                onClick={() => handleRoute(page.toLowerCase())}
-                sx={{ my: 2, color: "white", display: "block" }}
+                key={page.name}
+                onClick={() => scrollToAnchor(page.anchor)}
+                color={determineColor(index)}
+                sx={{ m: 2, display: "block" }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
-          </Box>
-          <SearchBar sx={{ flex: 1, display: { xs: "none", md: "flex" } }} />
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>
