@@ -36,7 +36,7 @@ export default function Home() {
       <main id="beamMeUpScotty">
         <FullHeightContainer
           sx={{
-            backgroundImage: `url("/img/headerBG1.png")`, // Use the imported image
+            backgroundImage: `url("/img/headerBG.png")`, // Use the imported image
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "305% 25%",
