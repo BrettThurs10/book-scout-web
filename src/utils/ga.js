@@ -2,17 +2,18 @@ import ReactGA from "react-ga";
 
 const googleAnalyticsID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 
-export const initGA = () => {
-  ReactGA.initialize(googleAnalyticsID);
+export const GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID;
+
+export const pageview = (url) => {
+  window.gtag("config", GA_MEASUREMENT_ID, {
+    page_path: url,
+  });
 };
 
-export const logPageView = () => {
-  ReactGA.set({ page: window.location.pathname });
-  ReactGA.pageview(window.location.pathname);
-};
-
-export const logEvent = (category = "", action = "") => {
-  if (category && action) {
-    ReactGA.event({ category, action });
-  }
+export const event = ({ action, category, label, value }) => {
+  window.gtag("event", action, {
+    event_category: category,
+    event_label: label,
+    value,
+  });
 };

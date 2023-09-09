@@ -5,7 +5,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { initGA, logPageView } from "@/utils/ga";
+import * as gtag from "@/utils/ga";
+import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState(darkTheme);
@@ -15,12 +16,16 @@ export default function App({ Component, pageProps }: AppProps) {
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
-    // Initialize Google Analytics
-    initGA();
+    const handleRouteChange = (url: string) => {
+      gtag.pageview(url);
+    };
 
-    // Log the initial page view
-    logPageView();
-  }, []);
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   React.useEffect(() => {
     // Function to handle scroll event
@@ -39,10 +44,32 @@ export default function App({ Component, pageProps }: AppProps) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const googleAnalyticsID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+
   return (
-    <ThemeProvider theme={theme}>
-      {!shouldHideAppBar && <ResponsiveAppBar isScrolled={isScrolled} />}
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsID}`}
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${googleAnalyticsID}', {
+            page_path: window.location.pathname,
+          });
+        `,
+        }}
+      />
+      <ThemeProvider theme={theme}>
+        {!shouldHideAppBar && <ResponsiveAppBar isScrolled={isScrolled} />}
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
   );
 }
