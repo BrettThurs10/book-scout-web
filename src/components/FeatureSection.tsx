@@ -31,7 +31,10 @@ export const FeatureSection = ({
       <Container
         sx={{
           display: "flex",
-          flexDirection: imgLeft ? "row" : "row-reverse",
+          flexDirection: {
+            xs: "column-reverse",
+            md: imgLeft ? "row" : "row-reverse",
+          },
           flex: 1,
         }}
       >
@@ -40,7 +43,10 @@ export const FeatureSection = ({
             backgroundImage: `url(${img})`, // Use the imported image
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: `${imgLeft ? "right" : "left"} center`,
+            backgroundPosition: {
+              xs: "center center",
+              md: `${imgLeft ? "right" : "left"} center`,
+            },
             minHeight: 500,
 
             flex: 1,

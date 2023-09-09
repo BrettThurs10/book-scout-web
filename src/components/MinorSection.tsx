@@ -32,7 +32,10 @@ export const MinorSection = ({
         maxWidth="xl"
         sx={{
           display: "flex",
-          flexDirection: imgLeft ? "row" : "row-reverse",
+          flexDirection: {
+            xs: "column",
+            md: imgLeft ? "row" : "row-reverse",
+          },
           flex: 1,
           minHeight: 400,
           p: "0px !important",
@@ -43,8 +46,13 @@ export const MinorSection = ({
             backgroundImage: `url(${img})`, // Use the imported image
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: `${imgLeft ? "right" : "left"} center`,
+            backgroundPosition: {
+              xs: "center center",
+              md: `${imgLeft ? "right" : "left"} center`,
+            },
             flex: 1,
+            height: 400,
+            p: { xs: 10, md: 0 },
           }}
         />
 

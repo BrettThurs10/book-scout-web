@@ -124,13 +124,14 @@ export default function Home() {
                   px: 10,
                   py: 1,
                   my: 5,
-                  display: { xs: "none", md: "block" },
+                  display: { xs: "none", md: "flex" },
                 }}
                 endIcon={<ArrowDropDown />}
               >
                 Find out more
               </Button>
             </Box>
+            <a name="readOnLizzy" />
           </Container>
           <Box
             sx={{
@@ -145,7 +146,7 @@ export default function Home() {
             }}
           />
         </FullHeightContainer>
-        <a name="readOnLizzy" />
+
         <FeatureSection
           img="/img/searchScreen.png"
           backgroundColor="primary"
@@ -226,19 +227,27 @@ export default function Home() {
         <Stack
           sx={{
             background: "black",
-            height: 100,
             borderTop: (theme) => `2px solid ${theme.palette.primary.main}`,
+            mb: { xs: 40, md: 0 },
           }}
         >
-          <Container>
+          <Container
+            sx={{
+              display: "flex",
+              flex: 1,
+              justifyContent: "center",
+            }}
+          >
             <Stack
               sx={{
-                flexDirection: "row",
+                flexDirection: { xs: "column-reverse", md: "row" },
                 justifyContent: "space-between",
                 py: 10,
+                flex: { xs: 1, md: 1 },
+                alignItems: "center",
               }}
             >
-              <Box>
+              <Box sx={{ mt: { xs: 5, md: 0 } }}>
                 <Button color="info" variant="text" sx={{ fontSize: 12 }}>
                   © 2023 Cool Slingshot
                 </Button>

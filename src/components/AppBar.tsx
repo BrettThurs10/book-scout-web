@@ -136,11 +136,7 @@ function ResponsiveAppBar(props: ResponsiveAppBarProps) {
               },
             }}
           >
-            <Stack
-              direction="row"
-              alignItems={"center"}
-              sx={{ mt: { xs: 1, md: 0 } }}
-            >
+            <Stack direction="row" alignItems={"center"} sx={{ mt: 1 }}>
               <Logo
                 sx={{
                   mr: 2,
