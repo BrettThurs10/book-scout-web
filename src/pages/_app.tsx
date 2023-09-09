@@ -1,13 +1,10 @@
-import React from "react";
 import ResponsiveAppBar from "@/components/AppBar";
 import "@/styles/globals.css";
-import type { AppProps } from "next/app";
-import { store } from "@/state/store";
-import { Provider } from "react-redux";
-import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 import { darkTheme } from "@/styles/theme";
-import { useState } from "react";
+import { ThemeProvider } from "@mui/material/styles";
+import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
+import React, { useState } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState(darkTheme);
@@ -34,11 +31,9 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, []);
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        {!shouldHideAppBar && <ResponsiveAppBar isScrolled={isScrolled} />}
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </Provider>
+    <ThemeProvider theme={theme}>
+      {!shouldHideAppBar && <ResponsiveAppBar isScrolled={isScrolled} />}
+      <Component {...pageProps} />
+    </ThemeProvider>
   );
 }
