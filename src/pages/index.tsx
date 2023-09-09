@@ -97,12 +97,12 @@ export default function Home() {
               </Typography>
 
               <Typography sx={{ pt: 2 }}>
-                Are you tired of the guess work involved in finding your next
+                {`Are you tired of the guess work involved in finding your next
                 great read? Look no further than Book Scout. As a discerning
                 reader, you're always on the hunt for captivating stories and
                 adventures, but you may also have specific preferences and want
                 to avoid certain topics or overused tropes. With Book Scout,
-                you're covered.
+                you're covered.`}
               </Typography>
 
               <Typography sx={{ pt: 2 }}>

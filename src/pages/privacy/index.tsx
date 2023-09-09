@@ -29,14 +29,14 @@ export default function Privacy() {
       </Typography>
 
       <Typography variant="body1" paragraph>
-        Welcome to Book Scout, a mobile application developed by Cool Slingshot.
+        {`Welcome to Book Scout, a mobile application developed by Cool Slingshot.
         At Book Scout, we value your privacy and are committed to protecting
         your personal information. This Privacy Policy is designed to help you
         understand how we collect, use, disclose, and safeguard your data when
         you use our mobile application, "Book Scout," available for download on
         the Apple App Store and Google Play Store (hereinafter referred to as
         "the App"). By using the App, you consent to the practices described in
-        this Privacy Policy.
+        this Privacy Policy.`}
       </Typography>
 
       <Typography variant="h4" paragraph>
@@ -150,7 +150,7 @@ export default function Privacy() {
       </List>
 
       <Typography variant="h4" paragraph>
-        <strong>Children's Privacy</strong>
+        <strong>{`Children's Privacy`}</strong>
       </Typography>
       <Typography variant="body1" paragraph>
         Book Scout is not intended for use by individuals under the age of 13.
