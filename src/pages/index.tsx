@@ -5,7 +5,6 @@ import FullHeightContainer from "@/components/FullHeight";
 import { MinorSection } from "@/components/MinorSection";
 import { ArrowDropDown } from "@mui/icons-material";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { BsDiscord } from "react-icons/bs";
 import { scrollToAnchor } from "@/utils/scrollToAnchor";
@@ -18,21 +17,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Book Scout - Know more. Read more.</title>
-        <meta
-          property="og:title"
-          content="Book Scout - Know more. Read more."
-        />
-        <meta property="og:image" content="/img/meta.png" />
-        <meta
-          name="description"
-          content=" Discover New Books with Ease, Thanks to Book Scout"
-        />
-        <meta property="og:url" content="https://www.bookscoutapp.com" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <main id="beamMeUpScotty">
         <FullHeightContainer
           sx={{

@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import * as gtag from "@/utils/ga";
 import Script from "next/script";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState(darkTheme);
@@ -48,10 +49,25 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsID}`}
-      />
+      <Head>
+        <title>Book Scout - Know more. Read more.</title>
+        <meta
+          property="og:title"
+          content="Book Scout - Know more. Read more."
+        />
+        <meta property="og:image" content="/img/meta.png" />
+        <meta
+          name="description"
+          content=" Discover New Books with Ease, Thanks to Book Scout"
+        />
+        <meta property="og:url" content="https://www.bookscoutapp.com" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsID}`}
+        />
+      </Head>
       <Script
         id="google-analytics"
         strategy="afterInteractive"
