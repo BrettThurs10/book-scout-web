@@ -15,6 +15,7 @@ export default function Home() {
   const handlePrivacyPolicyClick = () => {
     router.push("privacy");
   };
+
   return (
     <>
       <Head>
@@ -46,6 +47,7 @@ export default function Home() {
               display: "flex",
               alignItems: "center",
               marginTop: { xs: 5, md: 10 },
+              paddingBottom: 5,
               position: "relative",
               zIndex: 2,
               flexDirection: { xs: "column-reverse", md: "row" },

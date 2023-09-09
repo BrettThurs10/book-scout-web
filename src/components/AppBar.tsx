@@ -20,7 +20,12 @@ const pages = [
   // { name: "Contact", anchor: "contact" },
 ];
 
-function ResponsiveAppBar() {
+export type ResponsiveAppBarProps = {
+  isScrolled: boolean;
+};
+
+function ResponsiveAppBar(props: ResponsiveAppBarProps) {
+  const { isScrolled } = props;
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -87,8 +92,12 @@ function ResponsiveAppBar() {
     <AppBar
       position="fixed"
       sx={{
-        backgroundColor: "rgba(0,0,0,0.2)",
-        backdropFilter: "blur(5px)",
+        backgroundColor: (theme) =>
+          props.isScrolled
+            ? theme.palette.background.default
+            : "rgba(0,0,0,0.2)",
+        transition: "background-color .5s ease",
+        backdropFilter: { xs: "blur(0)", md: "blur(5px)" },
         boxShadow: "0 0 20px rgba(0, 0, 0, 0.8)", // Add a shadow for soft edges
         "&::before": {
           content: '""',
@@ -127,7 +136,11 @@ function ResponsiveAppBar() {
               },
             }}
           >
-            <Stack direction="row" alignItems={"center"}>
+            <Stack
+              direction="row"
+              alignItems={"center"}
+              sx={{ mt: { xs: 1, md: 0 } }}
+            >
               <Logo
                 sx={{
                   mr: 2,
