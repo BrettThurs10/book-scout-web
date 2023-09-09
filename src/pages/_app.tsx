@@ -5,6 +5,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { initGA, logPageView } from "@/utils/ga";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState(darkTheme);
@@ -12,6 +13,14 @@ export default function App({ Component, pageProps }: AppProps) {
   const routesToHideAppBar = ["/privacy"];
   const shouldHideAppBar = routesToHideAppBar.includes(router.pathname);
   const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    // Initialize Google Analytics
+    initGA();
+
+    // Log the initial page view
+    logPageView();
+  }, []);
 
   React.useEffect(() => {
     // Function to handle scroll event
