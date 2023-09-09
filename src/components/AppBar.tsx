@@ -89,131 +89,133 @@ function ResponsiveAppBar(props: ResponsiveAppBarProps) {
   }
 
   return (
-    <AppBar
-      position="fixed"
-      sx={{
-        backgroundColor: (theme) =>
-          props.isScrolled
-            ? theme.palette.background.default
-            : "rgba(0,0,0,0.2)",
-        transition: "background-color .5s ease",
-        backdropFilter: { xs: "blur(0)", md: "blur(5px)" },
-        boxShadow: "0 0 20px rgba(0, 0, 0, 0.8)", // Add a shadow for soft edges
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          background:
-            "linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.2) 100%)",
-          borderRadius: "inherit",
-        },
-      }}
-    >
-      <Container maxWidth="lg">
-        <Toolbar disableGutters>
-          <Stack
-            sx={{
-              flexDirection: "row",
-              display: { xs: "none", md: "flex" },
-              alignItems: "center",
-            }}
-          >
-            <Logo sx={{ mr: 2, display: { xs: "none", md: "flex" } }} />
-          </Stack>
-
-          <Stack
-            sx={{
-              flex: 1,
-              justifyContent: "center",
-              display: {
-                xs: "flex",
-                md: "none",
-                alignItems: "center",
+    <nav>
+      <AppBar
+        position="fixed"
+        sx={{
+          backgroundColor: (theme) =>
+            props.isScrolled
+              ? theme.palette.background.default
+              : "rgba(0,0,0,0.2)",
+          transition: "background-color .5s ease",
+          backdropFilter: { xs: "blur(0)", md: "blur(5px)" },
+          boxShadow: "0 0 20px rgba(0, 0, 0, 0.8)", // Add a shadow for soft edges
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background:
+              "linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.2) 100%)",
+            borderRadius: "inherit",
+          },
+        }}
+      >
+        <Container maxWidth="lg">
+          <Toolbar disableGutters>
+            <Stack
+              sx={{
                 flexDirection: "row",
-              },
-            }}
-          >
-            <Stack direction="row" alignItems={"center"} sx={{ mt: 1 }}>
-              <Logo
+                display: { xs: "none", md: "flex" },
+                alignItems: "center",
+              }}
+            >
+              <Logo sx={{ mr: 2, display: { xs: "none", md: "flex" } }} />
+            </Stack>
+
+            <Stack
+              sx={{
+                flex: 1,
+                justifyContent: "center",
+                display: {
+                  xs: "flex",
+                  md: "none",
+                  alignItems: "center",
+                  flexDirection: "row",
+                },
+              }}
+            >
+              <Stack direction="row" alignItems={"center"} sx={{ mt: 1 }}>
+                <Logo
+                  sx={{
+                    mr: 2,
+                    display: { xs: "flex", md: "none" },
+                    flexGrow: 1,
+                  }}
+                />
+              </Stack>
+              <Box
                 sx={{
-                  mr: 2,
                   display: { xs: "flex", md: "none" },
-                  flexGrow: 1,
+                  position: "absolute",
+                  right: 0,
                 }}
-              />
+              >
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    display: { xs: "block", md: "none" },
+                  }}
+                >
+                  {pages.map((page) => (
+                    <MenuItem
+                      key={page.name}
+                      onClick={() => handleCloseNavMenu(page.anchor)}
+                    >
+                      <Typography color="secondary" textAlign="center">
+                        {page.name}
+                      </Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
             </Stack>
             <Box
               sx={{
-                display: { xs: "flex", md: "none" },
-                position: "absolute",
-                right: 0,
+                flex: 1,
+                justifyContent: "flex-end",
+                display: { xs: "none", md: "flex" },
               }}
             >
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem
-                    key={page.name}
-                    onClick={() => handleCloseNavMenu(page.anchor)}
-                  >
-                    <Typography color="secondary" textAlign="center">
-                      {page.name}
-                    </Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
+              {pages.map((page, index) => (
+                <Button
+                  key={page.name}
+                  onClick={() => scrollToAnchor(page.anchor)}
+                  color={determineColor(index)}
+                  sx={{ m: 2, display: "block" }}
+                >
+                  {page.name}
+                </Button>
+              ))}
             </Box>
-          </Stack>
-          <Box
-            sx={{
-              flex: 1,
-              justifyContent: "flex-end",
-              display: { xs: "none", md: "flex" },
-            }}
-          >
-            {pages.map((page, index) => (
-              <Button
-                key={page.name}
-                onClick={() => scrollToAnchor(page.anchor)}
-                color={determineColor(index)}
-                sx={{ m: 2, display: "block" }}
-              >
-                {page.name}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </nav>
   );
 }
 export default ResponsiveAppBar;

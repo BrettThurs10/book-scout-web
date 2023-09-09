@@ -13,7 +13,10 @@ export default function Privacy() {
   const router = useRouter();
   const handleBack = () => router.back();
   return (
-    <Container maxWidth="md" sx={{ mt: 10, mb: 20 }}>
+    <Container
+      maxWidth="md"
+      sx={{ mt: { xs: 5, md: 10 }, mb: { xs: 30, md: 20 }, p: 5 }}
+    >
       <Button onClick={handleBack} startIcon={<ArrowLeft />}>
         Back
       </Button>
