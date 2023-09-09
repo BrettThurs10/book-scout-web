@@ -33,8 +33,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <a name="beamMeUpScotty" />
+      <main id="beamMeUpScotty">
         <FullHeightContainer
           sx={{
             backgroundImage: `url("/img/headerBG1.png")`, // Use the imported image
@@ -140,7 +139,7 @@ export default function Home() {
                 Find out more
               </Button>
             </Box>
-            <a name="readOnLizzy" />
+            <span id="readOnLizzy" />
           </Container>
           <Box
             sx={{
@@ -225,7 +224,7 @@ export default function Home() {
             body: "Book Scout has a slew of exciting features in the pipeline. Stay tuned for cloud-based features, user accounts, curated playlists, suggest-a-book functionality, and much more!",
           }}
         />
-        <a name="beta" />
+        <span id="beta" />
         <CTA
           backgroundColor="background"
           text={{

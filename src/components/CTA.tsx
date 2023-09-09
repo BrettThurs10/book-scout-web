@@ -1,26 +1,30 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
 import { BetaSignUp } from "./BetaSignUp";
 import { ArrowUpward } from "@mui/icons-material";
 import { scrollToAnchor } from "@/utils/scrollToAnchor";
+import { darkTheme } from "@/styles/theme";
 
 type CTAProps = {
   img?: string;
   imgLeft?: boolean;
-  backgroundColor: string;
+  backgroundColor: keyof typeof darkTheme.palette; // Specify the type here
   text: { title: string; body: string };
   btn?: React.ReactNode;
 };
 
 export const CTA = ({ backgroundColor, btn, text }: CTAProps) => {
+  const theme = useTheme();
+  const bgColor = backgroundColor as keyof typeof theme.palette;
+  const paletteColor = theme.palette[bgColor];
+  //@ts-ignore
+  const mainColor = paletteColor && paletteColor.main;
   return (
     <section>
       <Box
         sx={{
-          background: (theme) =>
-            theme.palette[backgroundColor].main ||
-            theme.palette[backgroundColor].default,
+          background: mainColor || theme.palette.background.default,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

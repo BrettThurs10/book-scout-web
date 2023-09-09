@@ -22,7 +22,9 @@ export const MinorSection = ({
       <Box
         sx={{
           background: (theme) =>
+            //@ts-ignore
             theme.palette[backgroundColor].main ||
+            //@ts-ignore
             theme.palette[backgroundColor].default,
           display: "flex",
           justifyContent: "center",

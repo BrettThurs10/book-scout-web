@@ -20,7 +20,9 @@ export const FeatureSection = ({
       <Box
         sx={{
           background: (theme) =>
+            //@ts-ignore
             theme.palette[backgroundColor].main ||
+            //@ts-ignore
             theme.palette[backgroundColor].default,
 
           display: "flex",

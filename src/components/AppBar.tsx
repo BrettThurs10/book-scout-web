@@ -205,7 +205,13 @@ function ResponsiveAppBar(props: ResponsiveAppBarProps) {
                 <Button
                   key={page.name}
                   onClick={() => scrollToAnchor(page.anchor)}
-                  color={determineColor(index)}
+                  color={
+                    determineColor(index) as
+                      | "secondary"
+                      | "info"
+                      | "error"
+                      | "primary"
+                  }
                   sx={{ m: 2, display: "block" }}
                 >
                   {page.name}

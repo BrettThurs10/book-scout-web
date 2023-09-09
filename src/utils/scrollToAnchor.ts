@@ -1,5 +1,5 @@
-export const scrollToAnchor = (anchorName: string) => {
-  const anchor = document.querySelector(`a[name="${anchorName}"]`);
+export const scrollToAnchor = (anchorId: string) => {
+  const anchor = document.querySelector(`#${anchorId}`);
   if (anchor) {
     anchor.scrollIntoView({ behavior: "smooth" });
   }
