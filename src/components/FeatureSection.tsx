@@ -16,69 +16,71 @@ export const FeatureSection = ({
   text,
 }: FeatureSectionProps) => {
   return (
-    <Box
-      sx={{
-        background: (theme) =>
-          theme.palette[backgroundColor].main ||
-          theme.palette[backgroundColor].default,
-
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        py: 5,
-      }}
-    >
-      <Container
+    <section>
+      <Box
         sx={{
+          background: (theme) =>
+            theme.palette[backgroundColor].main ||
+            theme.palette[backgroundColor].default,
+
           display: "flex",
-          flexDirection: {
-            xs: "column-reverse",
-            md: imgLeft ? "row" : "row-reverse",
-          },
-          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          py: 5,
         }}
       >
-        <Stack
+        <Container
           sx={{
-            backgroundImage: `url(${img})`, // Use the imported image
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: {
-              xs: "center center",
-              md: `${imgLeft ? "right" : "left"} center`,
-            },
-            minHeight: 500,
-
-            flex: 1,
-          }}
-        />
-
-        <Box
-          sx={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "flex-start",
             display: "flex",
-            flexDirection: "column",
-
-            p: 10,
+            flexDirection: {
+              xs: "column-reverse",
+              md: imgLeft ? "row" : "row-reverse",
+            },
+            flex: 1,
           }}
         >
-          <Typography
-            variant="h4"
-            color={backgroundColor === "background" ? "info" : "black"}
-            sx={{ fontWeight: 600 }}
+          <Stack
+            sx={{
+              backgroundImage: `url(${img})`, // Use the imported image
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: {
+                xs: "center center",
+                md: `${imgLeft ? "right" : "left"} center`,
+              },
+              minHeight: 500,
+
+              flex: 1,
+            }}
+          />
+
+          <Box
+            sx={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "flex-start",
+              display: "flex",
+              flexDirection: "column",
+
+              p: 10,
+            }}
           >
-            {text.title}
-          </Typography>
-          <Typography
-            color={backgroundColor === "background" ? "info" : "black"}
-            sx={{ pt: 1 }}
-          >
-            {text.body}
-          </Typography>
-        </Box>
-      </Container>
-    </Box>
+            <Typography
+              variant="h4"
+              color={backgroundColor === "background" ? "info" : "black"}
+              sx={{ fontWeight: 600 }}
+            >
+              {text.title}
+            </Typography>
+            <Typography
+              color={backgroundColor === "background" ? "info" : "black"}
+              sx={{ pt: 1 }}
+            >
+              {text.body}
+            </Typography>
+          </Box>
+        </Container>
+      </Box>
+    </section>
   );
 };

@@ -18,71 +18,73 @@ export const MinorSection = ({
   text,
 }: MinorSectionProps) => {
   return (
-    <Box
-      sx={{
-        background: (theme) =>
-          theme.palette[backgroundColor].main ||
-          theme.palette[backgroundColor].default,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Container
-        maxWidth="xl"
+    <section>
+      <Box
         sx={{
+          background: (theme) =>
+            theme.palette[backgroundColor].main ||
+            theme.palette[backgroundColor].default,
           display: "flex",
-          flexDirection: {
-            xs: "column",
-            md: imgLeft ? "row" : "row-reverse",
-          },
-          flex: 1,
-          minHeight: 400,
-          p: "0px !important",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <Stack
+        <Container
+          maxWidth="xl"
           sx={{
-            backgroundImage: `url(${img})`, // Use the imported image
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: {
-              xs: "center center",
-              md: `${imgLeft ? "right" : "left"} center`,
+            display: "flex",
+            flexDirection: {
+              xs: "column",
+              md: imgLeft ? "row" : "row-reverse",
             },
             flex: 1,
-            height: 400,
-            p: { xs: 10, md: 0 },
-          }}
-        />
-
-        <Box
-          sx={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "flex-start",
-            display: "flex",
-            flexDirection: "column",
+            minHeight: 400,
+            p: "0px !important",
           }}
         >
-          <Box sx={{ p: 10 }}>
-            <Typography
-              variant="h4"
-              color={backgroundColor === "background" ? "info" : "black"}
-              sx={{ fontWeight: 600 }}
-            >
-              {text.title}
-            </Typography>
-            <Typography
-              color={backgroundColor === "background" ? "info" : "black"}
-              sx={{ pt: 1 }}
-            >
-              {text.body}
-            </Typography>
-            {btn && btn}
+          <Stack
+            sx={{
+              backgroundImage: `url(${img})`, // Use the imported image
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: {
+                xs: "center center",
+                md: `${imgLeft ? "right" : "left"} center`,
+              },
+              flex: 1,
+              height: 400,
+              p: { xs: 10, md: 0 },
+            }}
+          />
+
+          <Box
+            sx={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "flex-start",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Box sx={{ p: 10 }}>
+              <Typography
+                variant="h4"
+                color={backgroundColor === "background" ? "info" : "black"}
+                sx={{ fontWeight: 600 }}
+              >
+                {text.title}
+              </Typography>
+              <Typography
+                color={backgroundColor === "background" ? "info" : "black"}
+                sx={{ pt: 1 }}
+              >
+                {text.body}
+              </Typography>
+              {btn && btn}
+            </Box>
           </Box>
-        </Box>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
+    </section>
   );
 };

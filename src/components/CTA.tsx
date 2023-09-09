@@ -15,80 +15,82 @@ type CTAProps = {
 
 export const CTA = ({ backgroundColor, btn, text }: CTAProps) => {
   return (
-    <Box
-      sx={{
-        background: (theme) =>
-          theme.palette[backgroundColor].main ||
-          theme.palette[backgroundColor].default,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Container
-        maxWidth="md"
+    <section>
+      <Box
         sx={{
+          background: (theme) =>
+            theme.palette[backgroundColor].main ||
+            theme.palette[backgroundColor].default,
           display: "flex",
-          flexDirection: "column",
-          flex: 1,
-          py: 20,
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <Stack
+        <Container
+          maxWidth="md"
           sx={{
-            flex: 1,
-          }}
-        />
-
-        <Box
-          sx={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
             display: "flex",
             flexDirection: "column",
+            flex: 1,
+            py: 20,
           }}
         >
-          <Box sx={{ justifyContent: "center" }}>
-            <Typography
-              variant="h4"
-              color={backgroundColor === "background" ? "info" : "black"}
-              sx={{ fontWeight: 600, textAlign: "center" }}
-            >
-              {text.title}
-            </Typography>
-            <Typography
-              color={backgroundColor === "background" ? "info" : "black"}
-              sx={{ pt: 1, textAlign: "center" }}
-            >
-              {text.body}
-            </Typography>
-            <Box sx={{ mt: 3 }}>
-              <BetaSignUp variant="contained" />
-              <Stack
-                sx={{
-                  justifyContent: "center",
-                  flex: 1,
-                  alignItems: "center",
-                  mt: 10,
-                }}
+          <Stack
+            sx={{
+              flex: 1,
+            }}
+          />
+
+          <Box
+            sx={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Box sx={{ justifyContent: "center" }}>
+              <Typography
+                variant="h4"
+                color={backgroundColor === "background" ? "info" : "black"}
+                sx={{ fontWeight: 600, textAlign: "center" }}
               >
-                <Box>
-                  <Button
-                    onClick={() => scrollToAnchor("beamMeUpScotty")}
-                    size="small"
-                    variant="outlined"
-                    sx={{ borderRadius: 10, px: 10, py: 1 }}
-                    endIcon={<ArrowUpward />}
-                  >
-                    Back to top
-                  </Button>
-                </Box>
-              </Stack>
+                {text.title}
+              </Typography>
+              <Typography
+                color={backgroundColor === "background" ? "info" : "black"}
+                sx={{ pt: 1, textAlign: "center" }}
+              >
+                {text.body}
+              </Typography>
+              <Box sx={{ mt: 3 }}>
+                <BetaSignUp variant="contained" />
+                <Stack
+                  sx={{
+                    justifyContent: "center",
+                    flex: 1,
+                    alignItems: "center",
+                    mt: 10,
+                  }}
+                >
+                  <Box>
+                    <Button
+                      onClick={() => scrollToAnchor("beamMeUpScotty")}
+                      size="small"
+                      variant="outlined"
+                      sx={{ borderRadius: 10, px: 10, py: 1 }}
+                      endIcon={<ArrowUpward />}
+                    >
+                      Back to top
+                    </Button>
+                  </Box>
+                </Stack>
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
+    </section>
   );
 };

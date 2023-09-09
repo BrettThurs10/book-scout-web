@@ -7,14 +7,16 @@ export interface FullHeightContainerProps extends BoxProps {
 
 function FullHeightContainer({ children, sx }: FullHeightContainerProps) {
   return (
-    <Box
-      sx={{
-        backgroundColor: (theme) => theme.palette.background.default,
-        ...sx,
-      }}
-    >
-      {children}
-    </Box>
+    <section>
+      <Box
+        sx={{
+          backgroundColor: (theme) => theme.palette.background.default,
+          ...sx,
+        }}
+      >
+        {children}
+      </Box>
+    </section>
   );
 }
 

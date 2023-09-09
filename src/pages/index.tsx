@@ -224,42 +224,47 @@ export default function Home() {
             body: "Get ready to revolutionize the way you discover and enjoy books. Sign up now to receive notifications when Book Scout Beta sets sail on its maiden voyage.",
           }}
         />
-        <Stack
-          sx={{
-            background: "black",
-            borderTop: (theme) => `2px solid ${theme.palette.primary.main}`,
-            mb: { xs: 40, md: 0 },
-          }}
-        >
-          <Container
+        <footer>
+          <Stack
             sx={{
-              display: "flex",
-              flex: 1,
-              justifyContent: "center",
+              background: "black",
+              borderTop: (theme) => `2px solid ${theme.palette.primary.main}`,
+              mb: { xs: 40, md: 0 },
             }}
           >
-            <Stack
+            <Container
               sx={{
-                flexDirection: { xs: "column-reverse", md: "row" },
-                justifyContent: "space-between",
-                py: 10,
-                flex: { xs: 1, md: 1 },
-                alignItems: "center",
+                display: "flex",
+                flex: 1,
+                justifyContent: "center",
               }}
             >
-              <Box sx={{ mt: { xs: 5, md: 0 } }}>
-                <Button color="info" variant="text" sx={{ fontSize: 12 }}>
-                  © 2023 Cool Slingshot
-                </Button>
-              </Box>
-              <Box>
-                <Button onClick={handlePrivacyPolicyClick} variant="contained">
-                  Privacy policy
-                </Button>
-              </Box>
-            </Stack>
-          </Container>
-        </Stack>
+              <Stack
+                sx={{
+                  flexDirection: { xs: "column-reverse", md: "row" },
+                  justifyContent: "space-between",
+                  py: 10,
+                  flex: { xs: 1, md: 1 },
+                  alignItems: "center",
+                }}
+              >
+                <Box sx={{ mt: { xs: 5, md: 0 } }}>
+                  <Button color="info" variant="text" sx={{ fontSize: 12 }}>
+                    © 2023 Cool Slingshot
+                  </Button>
+                </Box>
+                <Box>
+                  <Button
+                    onClick={handlePrivacyPolicyClick}
+                    variant="contained"
+                  >
+                    Privacy policy
+                  </Button>
+                </Box>
+              </Stack>
+            </Container>
+          </Stack>
+        </footer>
       </main>
     </>
   );
