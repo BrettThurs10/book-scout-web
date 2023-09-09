@@ -6,9 +6,7 @@ Visit https://BookScoutApp.com
 
 Book Scout is an app built in React Native, with Expo. It's an app that connects the discerning reader to new books that align with their reading preferences. Here is a copy and paste from the landing page.
 
-```
 Are you tired of the guess work involved in finding your next great read? Look no further than Book Scout. As a discerning reader, you're always on the hunt for captivating stories and adventures, but you may also have specific preferences and want to avoid certain topics or overused tropes. With Book Scout, you're covered.
-```
 
 It will be available on iOS and Android soon.
 
