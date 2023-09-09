@@ -50,7 +50,7 @@ export default function Home() {
                 backgroundImage: `url("/img/appHome.png")`, // Use the imported image
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "right center",
+                backgroundPosition: { xs: "center center", md: "right center" },
                 minHeight: 550,
                 maxHeight: "75vh",
                 flex: 1,
