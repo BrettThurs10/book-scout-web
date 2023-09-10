@@ -55,7 +55,7 @@ export default function App({ Component, pageProps }: AppProps) {
           property="og:title"
           content="Book Scout - Know more. Read more."
         />
-        <meta property="og:image" content="/img/meta.png" />
+        <meta property="og:image" content="/img/meta.webp" />
         <meta
           name="description"
           content=" Discover New Books with Ease, Thanks to Book Scout"

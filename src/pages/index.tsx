@@ -20,7 +20,7 @@ export default function Home() {
       <main id="beamMeUpScotty">
         <FullHeightContainer
           sx={{
-            backgroundImage: `url("/img/headerBG.png")`,
+            backgroundImage: `url("/img/headerBG.webp")`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "305% 25%",
@@ -47,7 +47,7 @@ export default function Home() {
           >
             <Box
               sx={{
-                backgroundImage: `url("/img/appHome.png")`, // Use the imported image
+                backgroundImage: `url("/img/appHome.webp")`, // Use the imported image
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: { xs: "center center", md: "right center" },
@@ -140,7 +140,7 @@ export default function Home() {
         </FullHeightContainer>
 
         <FeatureSection
-          img="/img/searchScreen.png"
+          img="/img/searchScreen.webp"
           backgroundColor="primary"
           text={{
             title: "Scan or Search for Any Book",
@@ -148,7 +148,7 @@ export default function Home() {
           }}
         />
         <FeatureSection
-          img="/img/detailsScreen.png"
+          img="/img/detailsScreen.webp"
           backgroundColor="secondary"
           imgLeft
           text={{
@@ -157,7 +157,7 @@ export default function Home() {
           }}
         />
         <FeatureSection
-          img="/img/aiInsights.png"
+          img="/img/aiInsights.webp"
           backgroundColor="info"
           text={{
             title: "Swift AI Book Insights",
@@ -166,7 +166,7 @@ export default function Home() {
         />
         <FeatureSection
           imgLeft
-          img="/img/keywords.png"
+          img="/img/keywords.webp"
           backgroundColor="background"
           text={{
             title: "Smart Book Reviews with Keyword Highlights",
@@ -174,7 +174,7 @@ export default function Home() {
           }}
         />
         <MinorSection
-          img="/img/family.png"
+          img="/img/family.webp"
           backgroundColor="primary"
           text={{
             title: "Tailored for Discerning Readers",
@@ -183,7 +183,7 @@ export default function Home() {
         />
         <MinorSection
           imgLeft
-          img="/img/discordWizard.png"
+          img="/img/discordWizard.webp"
           backgroundColor="secondary"
           text={{
             title: "Join Us on Discord",
@@ -201,7 +201,7 @@ export default function Home() {
           }
         />
         <MinorSection
-          img="/img/smiling.png"
+          img="/img/smiling.webp"
           backgroundColor="info"
           text={{
             title: "More Exciting Features Coming Soon",
