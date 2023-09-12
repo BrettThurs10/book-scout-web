@@ -120,7 +120,7 @@ export default function Home() {
             </Box>
             <span id="readOnLizzy" />
           </Container>
-          <Box
+          {/* <Box
             sx={{
               position: "absolute",
               bottom: 0,
@@ -131,7 +131,7 @@ export default function Home() {
                 "linear-gradient(rgba(6,15,23, 0.2), rgba(6,15,23, 0.5) 20%, rgba(6,15,23, 1) 80%)", // Gradient overlay
               zIndex: 1, // Place the overlay behind the content
             }}
-          />
+          /> */}
         </FullHeightContainer>
 
         <FeatureSection
