@@ -80,7 +80,6 @@ export default function Home() {
             >
               <Typography
                 variant="h4"
-                color="info"
                 sx={{
                   fontWeight: 800,
                   color: (theme) => theme.palette.primary.main,
