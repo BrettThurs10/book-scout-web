@@ -4,10 +4,18 @@ import { FeatureSection } from "@/components/FeatureSection";
 import FullHeightContainer from "@/components/FullHeight";
 import { MinorSection } from "@/components/MinorSection";
 import { ArrowDropDown } from "@mui/icons-material";
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Stack,
+  ThemeProvider,
+  Typography,
+} from "@mui/material";
 import { useRouter } from "next/router";
 import { BsDiscord } from "react-icons/bs";
 import { scrollToAnchor } from "@/utils/scrollToAnchor";
+import { darkTheme } from "@/styles/theme";
 
 export default function Home() {
   const router = useRouter();
@@ -16,7 +24,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <ThemeProvider theme={darkTheme}>
       <main id="beamMeUpScotty">
         <FullHeightContainer
           sx={{
@@ -75,16 +83,17 @@ export default function Home() {
                 color="info"
                 sx={{
                   fontWeight: 800,
+                  color: (theme) => theme.palette.primary.main,
                 }}
               >
                 Discover New Books with Ease, Thanks to Book Scout
               </Typography>
 
-              <Typography color="info" sx={{ pt: 2 }}>
+              <Typography color="info" sx={{ pt: 2, color: "#fff" }}>
                 {`Are you tired of the guesswork involved in finding your next captivating read? Look no further than Book Scout. As a discerning reader, you're always on the hunt for exciting stories and adventures, but you may also have specific preferences and want to avoid certain topics or overused tropes. With Book Scout, your reading experience just got better.`}
               </Typography>
 
-              <Typography color="info" sx={{ pt: 2 }}>
+              <Typography sx={{ pt: 2, color: "#fff" }}>
                 Book Scout is on the verge of its exciting launch. Join our Beta
                 notification list now!
               </Typography>
@@ -254,6 +263,6 @@ export default function Home() {
           </Stack>
         </footer>
       </main>
-    </>
+    </ThemeProvider>
   );
 }
