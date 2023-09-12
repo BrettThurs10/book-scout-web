@@ -80,12 +80,7 @@ export default function Home() {
               </Typography>
 
               <Typography sx={{ pt: 2 }}>
-                {`Are you tired of the guess work involved in finding your next
-                great read? Look no further than Book Scout. As a discerning
-                reader, you're always on the hunt for captivating stories and
-                adventures, but you may also have specific preferences and want
-                to avoid certain topics or overused tropes. With Book Scout,
-                you're covered.`}
+                {`Are you tired of the guesswork involved in finding your next captivating read? Look no further than Book Scout. As a discerning reader, you're always on the hunt for exciting stories and adventures, but you may also have specific preferences and want to avoid certain topics or overused tropes. With Book Scout, your reading experience just got better.`}
               </Typography>
 
               <Typography sx={{ pt: 2 }}>
@@ -144,7 +139,7 @@ export default function Home() {
           backgroundColor="primary"
           text={{
             title: "Scan or Search for Any Book",
-            body: "Empower yourself to explore any book before committing your precious time. Whether you prefer scanning a barcode or searching by title, Book Scout handles the rest effortlessly.",
+            body: "Empower yourself to explore any book before investing your precious time. Whether you prefer scanning a barcode or searching by title, Book Scout effortlessly handles the rest.",
           }}
         />
         <FeatureSection
@@ -153,7 +148,7 @@ export default function Home() {
           imgLeft
           text={{
             title: "Knowledge is Power",
-            body: "Book Scout compiles comprehensive information and insights for nearly any book you search for. You'll discover book details, AI-generated insights, insightful Amazon book reviews, and direct links to purchase the books on Amazon.",
+            body: "Book Scout compiles comprehensive information and insights for nearly any book you search for. You'll uncover book details, AI-generated insights, insightful Amazon book reviews, and direct links to purchase the books on Amazon.",
           }}
         />
         <FeatureSection
@@ -161,7 +156,7 @@ export default function Home() {
           backgroundColor="info"
           text={{
             title: "Swift AI Book Insights",
-            body: "Find out if a book aligns with your interests in no time. Our AI system distills the positive attributes of books while also identifying potentially negative themes, too. ",
+            body: "Discover if a book aligns with your interests in no time. Our AI system distills the best aspects of books while also identifying potential themes you may want to know about.",
           }}
         />
         <FeatureSection
@@ -170,7 +165,7 @@ export default function Home() {
           backgroundColor="background"
           text={{
             title: "Smart Book Reviews with Keyword Highlights",
-            body: "We bring in Amazon book reviews for you to consider as well. What's more, you can tailor your research by highlighting keywords in customer book reviews that hold significance for you.",
+            body: "We bring you Amazon book reviews for your consideration. What's more, you can tailor your research by highlighting keywords in customer book reviews that matter to you.",
           }}
         />
         <MinorSection

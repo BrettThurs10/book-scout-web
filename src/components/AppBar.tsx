@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import { scrollToAnchor } from "@/utils/scrollToAnchor";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 const pages = [
   { name: "Home", anchor: "beamMeUpScotty" },
@@ -191,6 +192,17 @@ function ResponsiveAppBar(props: ResponsiveAppBarProps) {
                       </Typography>
                     </MenuItem>
                   ))}
+
+                  <MenuItem
+                    onClick={() =>
+                      (window.location.href =
+                        "https://www.instagram.com/getbookscout/")
+                    }
+                  >
+                    <Typography color="secondary" textAlign="center">
+                      Instagram
+                    </Typography>
+                  </MenuItem>
                 </Menu>
               </Box>
             </Stack>
@@ -217,6 +229,16 @@ function ResponsiveAppBar(props: ResponsiveAppBarProps) {
                   {page.name}
                 </Button>
               ))}
+              <IconButton
+                onClick={() =>
+                  (window.location.href =
+                    "https://www.instagram.com/getbookscout/")
+                }
+                color="primary"
+                sx={{ m: 2, display: "block", borderRadius: 0 }}
+              >
+                <InstagramIcon sx={{ marginTop: 1 }} />
+              </IconButton>
             </Box>
           </Toolbar>
         </Container>
