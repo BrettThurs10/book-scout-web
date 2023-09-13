@@ -31,7 +31,7 @@ export default function Home() {
             backgroundImage: `url("/img/headerBG.webp")`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: "305% 25%",
+            backgroundPosition: { xs: "center center", md: "305% 25%" },
             justifyContent: "center",
             alignItems: "center",
             flex: 1,
@@ -46,7 +46,7 @@ export default function Home() {
               flex: 1,
               display: "flex",
               alignItems: "center",
-              marginTop: { xs: 5, md: 10 },
+              marginTop: { xs: 5, md: 15 },
               paddingBottom: 5,
               position: "relative",
               zIndex: 2,
@@ -107,7 +107,7 @@ export default function Home() {
               justifyContent: "center",
               alignItems: "center",
               display: "flex",
-              bottom: 20,
+              bottom: 80,
             }}
           >
             <Box>
@@ -129,7 +129,7 @@ export default function Home() {
             </Box>
             <span id="readOnLizzy" />
           </Container>
-          {/* <Box
+          <Box
             sx={{
               position: "absolute",
               bottom: 0,
@@ -137,10 +137,10 @@ export default function Home() {
               width: "100%",
               height: "100%",
               background:
-                "linear-gradient(rgba(6,15,23, 0.2), rgba(6,15,23, 0.5) 20%, rgba(6,15,23, 1) 80%)", // Gradient overlay
+                "linear-gradient(rgba(6,15,23, 0.5), rgba(6,15,23, 0.8) 20%, rgba(6,15,23, 1) 80%)", // Gradient overlay
               zIndex: 1, // Place the overlay behind the content
             }}
-          /> */}
+          />
         </FullHeightContainer>
 
         <FeatureSection
@@ -225,7 +225,7 @@ export default function Home() {
             sx={{
               background: "black",
               borderTop: (theme) => `2px solid ${theme.palette.primary.main}`,
-              mb: { xs: 40, md: 0 },
+              mb: 0,
             }}
           >
             <Container

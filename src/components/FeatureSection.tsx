@@ -28,7 +28,8 @@ export const FeatureSection = ({
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          py: 5,
+
+          py: { xs: 0, md: 10 },
         }}
       >
         <Container
@@ -51,7 +52,6 @@ export const FeatureSection = ({
                 md: `${imgLeft ? "right" : "left"} center`,
               },
               minHeight: 500,
-
               flex: 1,
             }}
           />
@@ -64,7 +64,7 @@ export const FeatureSection = ({
               display: "flex",
               flexDirection: "column",
 
-              p: 10,
+              p: 5,
             }}
           >
             <Typography

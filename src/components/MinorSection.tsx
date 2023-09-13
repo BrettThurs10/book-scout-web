@@ -68,7 +68,7 @@ export const MinorSection = ({
               flexDirection: "column",
             }}
           >
-            <Box sx={{ p: 10 }}>
+            <Box sx={{ p: { xs: 8, md: 5 } }}>
               <Typography
                 variant="h4"
                 color={backgroundColor === "background" ? "info" : "black"}
