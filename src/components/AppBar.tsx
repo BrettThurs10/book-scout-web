@@ -13,6 +13,7 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import { scrollToAnchor } from "@/utils/scrollToAnchor";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import { BsDiscord } from "react-icons/bs";
 
 const pages = [
   { name: "Home", anchor: "beamMeUpScotty" },
@@ -203,6 +204,15 @@ function ResponsiveAppBar(props: ResponsiveAppBarProps) {
                       Instagram
                     </Typography>
                   </MenuItem>
+                  <MenuItem
+                    onClick={() =>
+                      (window.location.href = "https://discord.gg/MHwS3KXmrF")
+                    }
+                  >
+                    <Typography color="info" textAlign="center">
+                      Discord
+                    </Typography>
+                  </MenuItem>
                 </Menu>
               </Box>
             </Stack>
@@ -230,6 +240,7 @@ function ResponsiveAppBar(props: ResponsiveAppBarProps) {
                 </Button>
               ))}
               <IconButton
+                title="Instagram"
                 onClick={() =>
                   (window.location.href =
                     "https://www.instagram.com/getbookscout/")
@@ -238,6 +249,18 @@ function ResponsiveAppBar(props: ResponsiveAppBarProps) {
                 sx={{ m: 2, display: "block", borderRadius: 0 }}
               >
                 <InstagramIcon sx={{ marginTop: 1 }} />
+              </IconButton>
+              <IconButton
+                title="Discord"
+                onClick={() =>
+                  (window.location.href = "https://discord.gg/MHwS3KXmrF")
+                }
+                color="secondary"
+                sx={{ m: 2, display: "block", borderRadius: 0 }}
+              >
+                <Box sx={{ mt: 1 }}>
+                  <BsDiscord />
+                </Box>
               </IconButton>
             </Box>
           </Toolbar>

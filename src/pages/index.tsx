@@ -198,9 +198,12 @@ export default function Home() {
               color="primary"
               sx={{ mt: 3 }}
               variant="contained"
+              onClick={() =>
+                (window.location.href = "https://discord.gg/MHwS3KXmrF")
+              }
               startIcon={<BsDiscord />}
             >
-              Book Scout Discord Server coming soon
+              Join The Discord
             </Button>
           }
         />
