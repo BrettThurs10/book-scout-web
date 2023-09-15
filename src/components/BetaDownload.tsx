@@ -3,6 +3,7 @@ import { Box, Button, ButtonProps, Stack, Tooltip } from "@mui/material";
 import React from "react";
 import AppleIcon from "@mui/icons-material/Apple";
 import AndroidIcon from "@mui/icons-material/Android";
+import { betaDownloadURL } from "@/pages/consts";
 
 type BetaDownloadProps = {
   color?: ButtonProps["color"];
@@ -15,8 +16,7 @@ export const BetaDownload = ({
   variant = "outlined",
   stacked = false,
 }: BetaDownloadProps) => {
-  const handleClick = () =>
-    (window.location.href = "http://eepurl.com/izkKm-/");
+  const handleClick = () => (window.location.href = betaDownloadURL);
   return (
     <Stack
       sx={{
