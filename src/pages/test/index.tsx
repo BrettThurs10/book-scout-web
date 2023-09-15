@@ -1,4 +1,4 @@
-import { BetaSignUp } from "@/components/BetaSignUp";
+import { BetaDownload } from "@/components/BetaDownload";
 import { CTA } from "@/components/CTA";
 import { FeatureSection } from "@/components/FeatureSection";
 import FullHeightContainer from "@/components/FullHeight";
@@ -88,7 +88,7 @@ export default function Home() {
                 notification list now!
               </Typography>
 
-              <BetaSignUp leftAligned variant="contained" color="secondary" />
+              <BetaDownload leftAligned variant="contained" color="secondary" />
             </Box>
           </Container>
           <Container

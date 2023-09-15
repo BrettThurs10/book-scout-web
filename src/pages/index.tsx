@@ -1,9 +1,9 @@
-import { BetaSignUp } from "@/components/BetaSignUp";
+import { BetaDownload } from "@/components/BetaDownload";
 import { CTA } from "@/components/CTA";
 import { FeatureSection } from "@/components/FeatureSection";
 import FullHeightContainer from "@/components/FullHeight";
 import { MinorSection } from "@/components/MinorSection";
-import { ArrowDropDown } from "@mui/icons-material";
+import { ArrowDropDown, ArrowRight } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -97,7 +97,7 @@ export default function Home() {
                 notification list now!
               </Typography>
 
-              <BetaSignUp leftAligned variant="contained" color="secondary" />
+              <BetaDownload stacked variant="contained" color="secondary" />
             </Box>
           </Container>
           <Container
@@ -208,19 +208,30 @@ export default function Home() {
           }
         />
         <MinorSection
+          btn={
+            <Button
+              onClick={() => (window.location.href = "https://google.com")}
+              sx={{ mt: 2 }}
+              variant="contained"
+              color="secondary"
+              endIcon={<ArrowRight />}
+            >
+              Join our contacts
+            </Button>
+          }
           img="/img/smiling.webp"
           backgroundColor="info"
           text={{
             title: "More Exciting Features Coming Soon",
-            body: "Book Scout has a slew of exciting features in the pipeline. Stay tuned for cloud-based features, user accounts, curated playlists, suggest-a-book functionality, and much more!",
+            body: "Book Scout has a slew of exciting features in the pipeline. Stay tuned for cloud-based features, user accounts, curated playlists, suggest-a-book functionality, and much more! Join our email distribution to stay on top of all the exciting features, enhancements and other announcements.",
           }}
         />
         <span id="beta" />
         <CTA
           backgroundColor="background"
           text={{
-            title: "Book Scout Beta: Launching Soon",
-            body: "Get ready to revolutionize the way you discover and enjoy books. Sign up now to receive notifications when Book Scout Beta sets sail on its maiden voyage.",
+            title: "Book Scout Beta for iOS now available",
+            body: "The Book Scout Beta for iOS is here! Be a part of shaping the future of reading by joining the Book Scout Beta program. As a Beta tester, you can help us refine and improve the app, ensuring a stable and thrilling Version 1. Stay tuned for the Android Beta, coming soon!",
           }}
         />
         <footer>

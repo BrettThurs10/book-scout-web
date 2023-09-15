@@ -1,7 +1,7 @@
 import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
-import { BetaSignUp } from "./BetaSignUp";
+import { BetaDownload } from "./BetaDownload";
 import { ArrowUpward } from "@mui/icons-material";
 import { scrollToAnchor } from "@/utils/scrollToAnchor";
 import { darkTheme } from "@/styles/theme";
@@ -69,7 +69,7 @@ export const CTA = ({ backgroundColor, btn, text }: CTAProps) => {
                 {text.body}
               </Typography>
               <Box sx={{ mt: 3 }}>
-                <BetaSignUp variant="contained" />
+                <BetaDownload variant="contained" />
                 <Stack
                   sx={{
                     justifyContent: "center",
