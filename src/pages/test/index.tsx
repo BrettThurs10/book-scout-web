@@ -88,7 +88,7 @@ export default function Home() {
                 notification list now!
               </Typography>
 
-              <BetaDownload leftAligned variant="contained" color="secondary" />
+              <BetaDownload variant="contained" color="secondary" />
             </Box>
           </Container>
           <Container
