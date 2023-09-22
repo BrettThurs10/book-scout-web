@@ -94,8 +94,8 @@ export default function Home() {
               </Typography>
 
               <Typography sx={{ pt: 2, color: "#fff" }}>
-                Book Scout is on the verge of its exciting launch. Join our Beta
-                notification list now!
+                Book Scout Beta is available for iOS now. Android will be coing
+                soon!
               </Typography>
 
               <BetaDownload stacked variant="contained" color="secondary" />
