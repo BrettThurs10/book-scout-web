@@ -3,7 +3,7 @@ import { Box, Button, ButtonProps, Stack, Tooltip } from "@mui/material";
 import React from "react";
 import AppleIcon from "@mui/icons-material/Apple";
 import AndroidIcon from "@mui/icons-material/Android";
-import { betaDownloadURL } from "@/pages/consts";
+import { betaDownloadURL } from "@/consts";
 
 type BetaDownloadProps = {
   color?: ButtonProps["color"];

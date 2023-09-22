@@ -16,7 +16,7 @@ import { useRouter } from "next/router";
 import { BsDiscord } from "react-icons/bs";
 import { scrollToAnchor } from "@/utils/scrollToAnchor";
 import { darkTheme } from "@/styles/theme";
-import { mailContactsChimpURL } from "./consts";
+import { mailContactsChimpURL } from "../consts";
 
 export default function Home() {
   const router = useRouter();
