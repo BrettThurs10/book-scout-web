@@ -3,7 +3,7 @@ import { Box, Button, ButtonProps, Stack, Tooltip } from "@mui/material";
 import React from "react";
 import AppleIcon from "@mui/icons-material/Apple";
 import AndroidIcon from "@mui/icons-material/Android";
-import { betaDownloadURL } from "@/consts";
+import { betaDownloadURL, iosDownloadURL } from "@/consts";
 
 type BetaDownloadProps = {
   color?: ButtonProps["color"];
@@ -16,7 +16,7 @@ export const BetaDownload = ({
   variant = "outlined",
   stacked = false,
 }: BetaDownloadProps) => {
-  const handleClick = () => (window.location.href = betaDownloadURL);
+  const handleClick = () => (window.location.href = iosDownloadURL);
   return (
     <Stack
       sx={{
@@ -51,10 +51,10 @@ export const BetaDownload = ({
             mb: stacked ? 2 : { xs: 2, md: 0 },
           }}
         >
-          Join the Apple Beta
+          Download for iOS
         </Button>
       </Box>
-      <Tooltip arrow title="Android Beta coming soon!">
+      <Tooltip arrow title="Android coming soon!">
         <Box
         // sx={{
         //   ".MuiButtonBase-root": {
@@ -79,7 +79,7 @@ export const BetaDownload = ({
               ml: stacked ? 0 : { xs: 0, md: 2 },
             }}
           >
-            Coming Soon Android Beta
+            Android coming soon
           </Button>
         </Box>
       </Tooltip>

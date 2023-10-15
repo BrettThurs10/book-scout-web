@@ -94,8 +94,7 @@ export default function Home() {
               </Typography>
 
               <Typography sx={{ pt: 2, color: "#fff" }}>
-                Book Scout Beta is available for iOS now. Android will be coing
-                soon!
+                Book Scout now available for iOS. Android will be coming soon!
               </Typography>
 
               <BetaDownload stacked variant="contained" color="secondary" />
@@ -227,12 +226,12 @@ export default function Home() {
             body: "Book Scout has a slew of exciting features in the pipeline. Stay tuned for cloud-based features, user accounts, curated playlists, suggest-a-book functionality, and much more! Join our email distribution to stay on top of all the exciting features, enhancements and other announcements.",
           }}
         />
-        <span id="beta" />
+        <span id="download" />
         <CTA
           backgroundColor="background"
           text={{
-            title: "Book Scout Beta for iOS now available",
-            body: "The Book Scout Beta for iOS is here! Be a part of shaping the future of reading by joining the Book Scout Beta program. As a Beta tester, you can help us refine and improve the app, ensuring a stable and thrilling Version 1. Stay tuned for the Android Beta, coming soon!",
+            title: "Download Book Scout",
+            body: "Book Scout for iOS is now availale! Android will be coming soon.",
           }}
         />
         <footer>

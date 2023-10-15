@@ -18,7 +18,7 @@ import { BsDiscord } from "react-icons/bs";
 const pages = [
   { name: "Home", anchor: "beamMeUpScotty" },
   { name: "Features", anchor: "readOnLizzy" },
-  { name: "Beta", anchor: "beta" },
+  { name: "Download", anchor: "download" },
   // { name: "Contact", anchor: "contact" },
 ];
 
@@ -52,20 +52,18 @@ function ResponsiveAppBar(props: ResponsiveAppBarProps) {
   }));
 
   const Logo = (props: TypographyProps) => (
-    <StyledBadge badgeContent="Beta" color="secondary">
-      <Typography
-        variant="logo"
-        noWrap
-        component="a"
-        href="/"
-        color="primary"
-        sx={{
-          ...props.sx,
-        }}
-      >
-        Book Scout
-      </Typography>
-    </StyledBadge>
+    <Typography
+      variant="logo"
+      noWrap
+      component="a"
+      href="/"
+      color="primary"
+      sx={{
+        ...props.sx,
+      }}
+    >
+      Book Scout
+    </Typography>
   );
 
   function determineColor(index: number) {
